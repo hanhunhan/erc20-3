@@ -20,22 +20,22 @@ contract MV is ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
     uint256 public platformRate;
     uint256 public swapRate;
     
-    ACConfig public btbConfig;
+    ACConfig public acbConfig;
 
 
-    function initialize(address _btbConfig)external initializer{
+    function initialize(address _acbConfig)external initializer{
         __Ownable_init();
         __ERC20_init('MV','MV');
 
-        btbConfig = ACConfig(_btbConfig);
+        acbConfig = ACConfig(_acbConfig);
 	_mint(msg.sender, 100000000 ether);
     }
 
     // required by the OZ UUPS module
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
-    function changeConfig(address _btbConfig)external onlyOwner{
-        btbConfig = ACConfig(_btbConfig);
+    function changeConfig(address _acbConfig)external onlyOwner{
+        acbConfig = ACConfig(_acbConfig);
     }
 
     function mint(uint256 amount)external onlyOwner{
@@ -48,16 +48,16 @@ contract MV is ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
     }
 
     function swap(uint256 amount)external {
-        IERC20Upgradeable(btbConfig.usdt()).transferFrom(msg.sender, btbConfig.platformAddress(), amount * btbConfig.platformRate() / 1000);
-        IERC20Upgradeable(btbConfig.usdt()).transferFrom(msg.sender, btbConfig.monthDividendAddress(), amount * (1000 - btbConfig.platformRate()) / 1000);
+        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.platformRate() / 1000);
+        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.monthDividendAddress(), amount * (1000 - acbConfig.platformRate()) / 1000);
 
-        _mint(msg.sender, amount * btbConfig.swapRate() / 1000);
+        _mint(msg.sender, amount * acbConfig.swapRate() / 1000);
     }
 
    function usdtswap(uint256 amount)external {
-        IERC20Upgradeable(btbConfig.usdt()).transferFrom(msg.sender, btbConfig.platformAddress(), amount * btbConfig.swapRate() / 1000);
+        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.swapRate() / 1000);
         
-	    IERC20Upgradeable(btbConfig.usb()).transferFrom( btbConfig.platformAddress(),msg.sender , amount * btbConfig.swapRate() / 1000);	
+	    IERC20Upgradeable(acbConfig.mv()).transferFrom( acbConfig.platformAddress(),msg.sender , amount * acbConfig.swapRate() / 1000);	
         
     }
  
