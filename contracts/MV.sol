@@ -60,5 +60,8 @@ contract MV is ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
 	    IERC20Upgradeable(acbConfig.mv()).transferFrom( acbConfig.platformAddress(),msg.sender , amount * acbConfig.swapRate() / 1000);	
         
     }
+      function _acbPrice()internal view returns(uint256) {
+        
+    }
  
 }
