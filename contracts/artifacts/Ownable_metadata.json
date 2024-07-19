@@ -1,0 +1,85 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MV.sol": "Ownable"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 10
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ERC20StandardToken.sol": {
+			"keccak256": "0x1da42774e87829ddd5fea202715f23d8f3837c732ec779f3e0c96aae14b4a7b6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://872e31160b7baa45ee2bca7eadc9bee6d8712606913ebdb0f73462d4929e9cf5",
+				"dweb:/ipfs/QmQqEowp2ZVatveYgKP2pYo7efiMAwamun4aK7EMLP2b8L"
+			]
+		},
+		"contracts/MV.sol": {
+			"keccak256": "0x519c85df421853a50f319ce0d62935f2aada12a29ac227c17cf81e7abfed30ef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5e4aefa5953319fefe852f876c618c5b60ed27465c4569d83f4da9121c4f40b5",
+				"dweb:/ipfs/QmcYQZsvjrhTWoeacpBGQ6c63zMVM8RgeUomHyzBrGtu6W"
+			]
+		}
+	},
+	"version": 1
+}

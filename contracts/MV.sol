@@ -1,67 +1,76 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.20;
 
+import "./ERC20StandardToken.sol";
 
  
 
-import {IERC20Upgradeable} from "../lib/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import {ERC20Upgradeable} from "../lib/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
-import {UUPSUpgradeable} from "../lib/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import {OwnableUpgradeable} from "../lib/contracts-upgradeable/access/OwnableUpgradeable.sol";
-
-import {ACConfig} from "./ACConfig.sol";
-
-
-contract MV is ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
-
-    address public usdt;
-    address public platformAddress;
-    address public monthDividendAddress;
-    uint256 public platformRate;
-    uint256 public swapRate;
+interface ACCONFIG {
+    function usdt()external view returns (address);
+    function platformAddress()external view returns (address);
+    function mv()external view returns (address);
+    function swapRate()external view returns (uint256 );
+     
     
-    ACConfig public acbConfig;
+}
+ 
+contract Ownable {
+    address public owner;
 
-
-    function initialize(address _acbConfig)external initializer{
-        __Ownable_init();
-        __ERC20_init('MV','MV');
-
-        acbConfig = ACConfig(_acbConfig);
-	_mint(msg.sender, 100000000 ether);
+    constructor () {
+        owner = msg.sender;
     }
 
-    // required by the OZ UUPS module
-    function _authorizeUpgrade(address) internal override onlyOwner {}
-
-    function changeConfig(address _acbConfig)external onlyOwner{
-        acbConfig = ACConfig(_acbConfig);
+    modifier onlyOwner() {
+        require(owner == msg.sender, "Ownable: caller is not the owner");
+        _;
     }
 
-    function mint(uint256 amount)external onlyOwner{
-        _mint(msg.sender, amount);
+    function transferOwnership(address newOwner) public onlyOwner {
+        owner = newOwner;
     }
+}
 
+contract MvCoin is ERC20StandardToken, Ownable {
+    
 
-    function burn(uint256 amount)external onlyOwner{
-        _burn(msg.sender, amount);
-    }
+   
+    
+    address public  acbConfig;
+     
 
-    function swap(uint256 amount)external {
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.platformRate() / 1000);
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.monthDividendAddress(), amount * (1000 - acbConfig.platformRate()) / 1000);
-
-        _mint(msg.sender, amount * acbConfig.swapRate() / 1000);
-    }
-
-   function usdtswap(uint256 amount)external {
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.swapRate() / 1000);
-        
-	    IERC20Upgradeable(acbConfig.mv()).transferFrom( acbConfig.platformAddress(),msg.sender , amount * acbConfig.swapRate() / 1000);	
-        
-    }
-      function _acbPrice()internal view returns(uint256) {
+  
+    constructor(address _acbConfig) ERC20StandardToken('MT', 'MT', 18, 100000000  ether) {
+         acbConfig =_acbConfig;
+          
         
     }
  
+
+    function _transfer(address from, address to, uint256 amount) internal override {
+        
+      
+        uint256 size;
+        assembly{size := extcodesize(to)}
+         
+        if(size > 0 ){
+             return;
+        }
+        super._transfer(from, to, amount);
+     
+         
+    }
+    function usdtswap(uint256 amount)external {
+
+        ERC20StandardToken(ACCONFIG(acbConfig).usdt()).transferFrom(msg.sender, ACCONFIG(acbConfig).platformAddress(), amount * ACCONFIG(acbConfig).swapRate() / 1000);
+        
+	    ERC20StandardToken(ACCONFIG(acbConfig).mv()).transferFrom( ACCONFIG(acbConfig).platformAddress(),msg.sender , amount * ACCONFIG(acbConfig).swapRate() / 1000);	
+        
+    }
+    function changeConfig(address _acbConfig)external onlyOwner{
+        acbConfig = _acbConfig;
+    }
+ 
+
+      
 }
