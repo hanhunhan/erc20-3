@@ -1,0 +1,11 @@
+{
+  "id": "-",
+  "network": "VM",
+  "deployments": {
+    "0xDA0bab807633f07f013f94DD0E6A4F96F8742B53": {
+      "date": "2024-07-21T16:32:20.800Z",
+      "contractName": "MinePool",
+      "implementationAddress": "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47"
+    }
+  }
+}

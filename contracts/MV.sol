@@ -40,7 +40,7 @@ contract MvCoin is ERC20StandardToken, Ownable {
      
 
   
-    constructor(address _acbConfig) ERC20StandardToken('MT', 'MT', 18, 100000000  ether) {
+    constructor(address _acbConfig) ERC20StandardToken('MV', 'MV', 18, 100000000  ether) {
          acbConfig =_acbConfig;
           
         

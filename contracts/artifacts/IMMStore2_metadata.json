@@ -39,7 +39,7 @@
 		"compilationTarget": {
 			"contracts/ACConfig.sol": "IMMStore2"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

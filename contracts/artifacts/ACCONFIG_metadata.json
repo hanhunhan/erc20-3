@@ -73,7 +73,7 @@
 		"compilationTarget": {
 			"contracts/MV.sol": "ACCONFIG"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -94,11 +94,11 @@
 			]
 		},
 		"contracts/MV.sol": {
-			"keccak256": "0x519c85df421853a50f319ce0d62935f2aada12a29ac227c17cf81e7abfed30ef",
+			"keccak256": "0xe84396e0c7be712fe3541298e8d7066ae73d3bd94db18fb87c240900c947d75d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5e4aefa5953319fefe852f876c618c5b60ed27465c4569d83f4da9121c4f40b5",
-				"dweb:/ipfs/QmcYQZsvjrhTWoeacpBGQ6c63zMVM8RgeUomHyzBrGtu6W"
+				"bzz-raw://43a7a81bed0fd3f82c2d17c27499f79c0e037ccd3b659f374186152b78549ba7",
+				"dweb:/ipfs/QmVXKbxxsBsTwMDxLAMLftzhNM2BTJtk5pfbUn32eeXoQz"
 			]
 		}
 	},
