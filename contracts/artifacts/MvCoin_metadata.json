@@ -319,7 +319,7 @@
 		"compilationTarget": {
 			"contracts/MV.sol": "MvCoin"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

@@ -73,7 +73,7 @@
 		"compilationTarget": {
 			"contracts/MV.sol": "ACCONFIG"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

@@ -52,7 +52,7 @@
 		"compilationTarget": {
 			"contracts/MV.sol": "Ownable"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

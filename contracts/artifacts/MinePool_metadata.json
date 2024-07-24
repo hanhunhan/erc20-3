@@ -265,7 +265,7 @@
 		"compilationTarget": {
 			"contracts/MinePool.sol": "MinePool"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

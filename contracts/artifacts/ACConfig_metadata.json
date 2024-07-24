@@ -1084,7 +1084,7 @@
 		"compilationTarget": {
 			"contracts/ACConfig.sol": "ACConfig"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
