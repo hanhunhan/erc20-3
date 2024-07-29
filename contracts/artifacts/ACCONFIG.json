@@ -49,16 +49,47 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
+			"marketAddress()": "95623641",
 			"mv()": "8f05cdf5",
+			"mvCollectionAddress()": "e9d610e5",
 			"platformAddress()": "dbe55e56",
+			"remainingAddress()": "f97fe091",
 			"swapRate()": "698518e5",
+			"teamRewardAddress()": "4b21ddec",
+			"techAddress()": "1e56cfab",
 			"usdt()": "2f48ab7d"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [],
+			"name": "marketAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "mv",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "mvCollectionAddress",
 			"outputs": [
 				{
 					"internalType": "address",
@@ -84,12 +115,51 @@
 		},
 		{
 			"inputs": [],
+			"name": "remainingAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "swapRate",
 			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "",
 					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "teamRewardAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "techAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
 			"stateMutability": "view",

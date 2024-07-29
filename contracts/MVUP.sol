@@ -13,59 +13,65 @@ import {OwnableUpgradeable} from "../lib/contracts-upgradeable/access/OwnableUpg
 import {ACConfig} from "./ACConfig.sol";
 
 
-contract MVUP is Initializable,  ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
+contract MVEXCHANGE is Initializable,  ERC20Upgradeable,UUPSUpgradeable,OwnableUpgradeable{
 
     address public usdt;
     address public platformAddress;
     address public monthDividendAddress;
+    address public acbConfig;
+    address public teamRewardAddress;
+    address public remainingAddress;
     uint256 public platformRate;
     uint256 public swapRate;
     
-    ACConfig public acbConfig;
+    
 
 
     function initialize(address _acbConfig)external initializer{
         __Ownable_init();
-        __ERC20_init('MVUP','MVUP');
-
-        acbConfig = ACConfig(_acbConfig);
-	_mint(msg.sender, 100000000 ether);
+        __ERC20_init('MVEX','MVEX');
+ 
+	    _mint(msg.sender, 2 ether);
+        acbConfig =_acbConfig;
     }
 
     // required by the OZ UUPS module
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
     function changeConfig(address _acbConfig)external onlyOwner{
-        acbConfig = ACConfig(_acbConfig);
+        acbConfig = _acbConfig;
     }
 
-    function mint(uint256 amount)external onlyOwner{
-        _mint(msg.sender, amount);
-    }
+ 
 
-
-    function burn(uint256 amount)external onlyOwner{
-        _burn(msg.sender, amount);
-    }
-     function burn2(uint256 amount)external onlyOwner{
-        _burn(msg.sender, amount);
-    }
-
-    function swap(uint256 amount)external {
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.platformRate() / 1000);
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.monthDividendAddress(), amount * (1000 - acbConfig.platformRate()) / 1000);
-
-        _mint(msg.sender, amount * acbConfig.swapRate() / 1000);
-    }
+ 
+ 
 
    function usdtswap(uint256 amount)external {
-        IERC20Upgradeable(acbConfig.usdt()).transferFrom(msg.sender, acbConfig.platformAddress(), amount * acbConfig.swapRate() / 1000);
+    
+        bool res = IERC20Upgradeable(ACCONFIG(acbConfig).usdt()).transferFrom(msg.sender, ACCONFIG(acbConfig).teamRewardAddress(), amount * ACCONFIG(acbConfig).swapRate() / 1000);
+        if(res){
+            IERC20Upgradeable(ACCONFIG(acbConfig).mv()).transferFrom( ACCONFIG(acbConfig).remainingAddress(),msg.sender , amount * ACCONFIG(acbConfig).swapRate() / 1000);
+        }
         
-	    IERC20Upgradeable(acbConfig.mv()).transferFrom( acbConfig.platformAddress(),msg.sender , amount * acbConfig.swapRate() / 1000);	
+	    		
         
     }
-      function _acbPrice()internal view returns(uint256) {
-        
-    }
+   
  
+}
+
+
+interface ACCONFIG {
+    function usdt()external view returns (address);
+    function platformAddress()external view returns (address);
+    function mv()external view returns (address);
+    function swapRate()external view returns (uint256 );
+    function teamRewardAddress()external view returns (address );
+    function remainingAddress()external view returns (address );
+    function mvCollectionAddress()external view returns (address );
+    function techAddress()external view returns (address );
+    function marketAddress()external view returns (address );
+     
+    
 }

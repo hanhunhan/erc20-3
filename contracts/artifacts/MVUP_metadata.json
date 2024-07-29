@@ -215,32 +215,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "burn",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "burn2",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
 						"name": "_acbConfig",
 						"type": "address"
@@ -352,19 +326,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "mint",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "monthDividendAddress",
 				"outputs": [
@@ -445,19 +406,6 @@
 			{
 				"inputs": [],
 				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "swap",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -757,19 +705,19 @@
 	},
 	"sources": {
 		"contracts/ACConfig.sol": {
-			"keccak256": "0x4b2ac3a1800d5c946a550d6d8f03ba4f29acb5a931d446b3189e430ba76c9f50",
+			"keccak256": "0x41c62a48b8770aeb45f514cf674f1bb0ede5e3324a5245b22e81c14601164a72",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://baf17ba80513847b6c922793cae82f38647a56633b1bf319d53555cb55bbe2b7",
-				"dweb:/ipfs/Qmcvp1wB5wdnvqwW4jWtQZHXxmkgo9xbcqpYFhxCzUtWbk"
+				"bzz-raw://61353ae4cdc9e73ceccbc7c56b35afab222f66c0e23ad81f254896f88f5927ea",
+				"dweb:/ipfs/Qme8BRKHnNJpf6wPQSpRwawdcmszavmgfB5W4DJ8ohxTYD"
 			]
 		},
 		"contracts/MVUP.sol": {
-			"keccak256": "0x63cb15581356631c65726484b0c0256b78b51ee181e058e41c6a0ab81ba8a67b",
+			"keccak256": "0x2be0ebeb12427d6cde778734b6a9f29a1943dea02098933b2c88c93d1c190020",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://60cb8e77ee576eb46a9b07cfd62656067f1f8709e06906f7346bf491dcef9bcb",
-				"dweb:/ipfs/QmdxMFCvRpa31t9NyTHZykMHhwSou6C2pAK8b2vTck5Q7x"
+				"bzz-raw://4c900eedb2bc0d37d25e0e7e8df8566a70a9fbb8dbe93c7e1de1a32f58333801",
+				"dweb:/ipfs/Qmbwsb5FwJPprG1YwiqBMyGKLJzKvDWVBmR67b4oNLEyTL"
 			]
 		},
 		"contracts/pair/IBTBPair.sol": {
